@@ -9,14 +9,18 @@
  * || || ||
  * \/ \/ \/
  */
-//#include "../usermods/EXAMPLE_v2/usermod_v2_example.h"
+// #include "../usermods/EXAMPLE_v2/usermod_v2_example.h"
+
+#include <HTTPClient.h>
+
+#include "../usermods/LIVE_TRACK/live_track.h"
 
 #ifdef USERMOD_BATTERY
-  #include "../usermods/Battery/usermod_v2_Battery.h"
+#include "../usermods/Battery/usermod_v2_Battery.h"
 #endif
 
 #ifdef USERMOD_DALLASTEMPERATURE
-  #include "../usermods/Temperature/usermod_temperature.h"
+#include "../usermods/Temperature/usermod_temperature.h"
 #endif
 
 #ifdef USERMOD_SHT
@@ -24,218 +28,217 @@
 #endif
 
 #ifdef USERMOD_SN_PHOTORESISTOR
-  #include "../usermods/SN_Photoresistor/usermod_sn_photoresistor.h"
+#include "../usermods/SN_Photoresistor/usermod_sn_photoresistor.h"
 #endif
 
 #ifdef USERMOD_PWM_FAN
-  // requires DALLASTEMPERATURE or SHT included before it
-  #include "../usermods/PWM_fan/usermod_PWM_fan.h"
+// requires DALLASTEMPERATURE or SHT included before it
+#include "../usermods/PWM_fan/usermod_PWM_fan.h"
 #endif
 
 #ifdef USERMOD_BUZZER
-  #include "../usermods/buzzer/usermod_v2_buzzer.h"
+#include "../usermods/buzzer/usermod_v2_buzzer.h"
 #endif
 
 #ifdef USERMOD_SENSORSTOMQTT
-  #include "../usermods/sensors_to_mqtt/usermod_v2_SensorsToMqtt.h"
+#include "../usermods/sensors_to_mqtt/usermod_v2_SensorsToMqtt.h"
 #endif
 
 #ifdef USERMOD_PIRSWITCH
-  #include "../usermods/PIR_sensor_switch/usermod_PIR_sensor_switch.h"
+#include "../usermods/PIR_sensor_switch/usermod_PIR_sensor_switch.h"
 #endif
 
 #ifdef USERMOD_BH1750
-  #include "../usermods/BH1750_v2/usermod_bh1750.h"
+#include "../usermods/BH1750_v2/usermod_bh1750.h"
 #endif
 
 // BME280 v2 usermod. Define "USERMOD_BME280" in my_config.h
 #ifdef USERMOD_BME280
-  #include "../usermods/BME280_v2/usermod_bme280.h"
+#include "../usermods/BME280_v2/usermod_bme280.h"
 #endif
 
 #ifdef USERMOD_BME68X
-  #include "../usermods/BME68X_v2/usermod_bme68x.h"
+#include "../usermods/BME68X_v2/usermod_bme68x.h"
 #endif
 
-
 #ifdef USERMOD_FOUR_LINE_DISPLAY
-  #include "../usermods/usermod_v2_four_line_display_ALT/usermod_v2_four_line_display_ALT.h"
+#include "../usermods/usermod_v2_four_line_display_ALT/usermod_v2_four_line_display_ALT.h"
 #endif
 
 #ifdef USERMOD_ROTARY_ENCODER_UI
-  #include "../usermods/usermod_v2_rotary_encoder_ui_ALT/usermod_v2_rotary_encoder_ui_ALT.h"
+#include "../usermods/usermod_v2_rotary_encoder_ui_ALT/usermod_v2_rotary_encoder_ui_ALT.h"
 #endif
 
 #ifdef USERMOD_AUTO_SAVE
-  #include "../usermods/usermod_v2_auto_save/usermod_v2_auto_save.h"
+#include "../usermods/usermod_v2_auto_save/usermod_v2_auto_save.h"
 #endif
 
 #ifdef USERMOD_DHT
-  #include "../usermods/DHT/usermod_dht.h"
+#include "../usermods/DHT/usermod_dht.h"
 #endif
 
 #ifdef USERMOD_VL53L0X_GESTURES
-  #include "../usermods/VL53L0X_gestures/usermod_vl53l0x_gestures.h"
+#include "../usermods/VL53L0X_gestures/usermod_vl53l0x_gestures.h"
 #endif
 
 #ifdef USERMOD_ANIMATED_STAIRCASE
-  #include "../usermods/Animated_Staircase/Animated_Staircase.h"
+#include "../usermods/Animated_Staircase/Animated_Staircase.h"
 #endif
 
 #ifdef USERMOD_MULTI_RELAY
-  #include "../usermods/multi_relay/usermod_multi_relay.h"
+#include "../usermods/multi_relay/usermod_multi_relay.h"
 #endif
 
 #ifdef USERMOD_RTC
-  #include "../usermods/RTC/usermod_rtc.h"
+#include "../usermods/RTC/usermod_rtc.h"
 #endif
 
 #ifdef USERMOD_ELEKSTUBE_IPS
-  #include "../usermods/EleksTube_IPS/usermod_elekstube_ips.h"
+#include "../usermods/EleksTube_IPS/usermod_elekstube_ips.h"
 #endif
 
 #ifdef USERMOD_ROTARY_ENCODER_BRIGHTNESS_COLOR
-  #include "../usermods/usermod_rotary_brightness_color/usermod_rotary_brightness_color.h"
+#include "../usermods/usermod_rotary_brightness_color/usermod_rotary_brightness_color.h"
 #endif
 
 #ifdef RGB_ROTARY_ENCODER
-  #include "../usermods/rgb-rotary-encoder/rgb-rotary-encoder.h"
+#include "../usermods/rgb-rotary-encoder/rgb-rotary-encoder.h"
 #endif
 
 #ifdef USERMOD_ST7789_DISPLAY
-  #include "../usermods/ST7789_display/ST7789_Display.h"
+#include "../usermods/ST7789_display/ST7789_Display.h"
 #endif
 
 #ifdef USERMOD_PIXELS_DICE_TRAY
-  #include "../usermods/pixels_dice_tray/pixels_dice_tray.h"
+#include "../usermods/pixels_dice_tray/pixels_dice_tray.h"
 #endif
 
 #ifdef USERMOD_SEVEN_SEGMENT
-  #include "../usermods/seven_segment_display/usermod_v2_seven_segment_display.h"
+#include "../usermods/seven_segment_display/usermod_v2_seven_segment_display.h"
 #endif
 
 #ifdef USERMOD_SSDR
-  #include "../usermods/seven_segment_display_reloaded/usermod_seven_segment_reloaded.h"
+#include "../usermods/seven_segment_display_reloaded/usermod_seven_segment_reloaded.h"
 #endif
 
 #ifdef USERMOD_CRONIXIE
-  #include "../usermods/Cronixie/usermod_cronixie.h"
+#include "../usermods/Cronixie/usermod_cronixie.h"
 #endif
 
 #ifdef QUINLED_AN_PENTA
-  #include "../usermods/quinled-an-penta/quinled-an-penta.h"
+#include "../usermods/quinled-an-penta/quinled-an-penta.h"
 #endif
 
 #ifdef USERMOD_WIZLIGHTS
-  #include "../usermods/wizlights/wizlights.h"
+#include "../usermods/wizlights/wizlights.h"
 #endif
 
 #ifdef USERMOD_WIREGUARD
-  #include "../usermods/wireguard/wireguard.h"
+#include "../usermods/wireguard/wireguard.h"
 #endif
 
 #ifdef USERMOD_WORDCLOCK
-  #include "../usermods/usermod_v2_word_clock/usermod_v2_word_clock.h"
+#include "../usermods/usermod_v2_word_clock/usermod_v2_word_clock.h"
 #endif
 
 #ifdef USERMOD_MY9291
-  #include "../usermods/MY9291/usermode_MY9291.h"
+#include "../usermods/MY9291/usermode_MY9291.h"
 #endif
 
 #ifdef USERMOD_SI7021_MQTT_HA
-  #include "../usermods/Si7021_MQTT_HA/usermod_si7021_mqtt_ha.h"
+#include "../usermods/Si7021_MQTT_HA/usermod_si7021_mqtt_ha.h"
 #endif
 
 #ifdef USERMOD_SMARTNEST
-  #include "../usermods/smartnest/usermod_smartnest.h"
+#include "../usermods/smartnest/usermod_smartnest.h"
 #endif
 
 #ifdef USERMOD_AUDIOREACTIVE
-  #include "../usermods/audioreactive/audio_reactive.h"
+#include "../usermods/audioreactive/audio_reactive.h"
 #endif
 
 #ifdef USERMOD_ANALOG_CLOCK
-  #include "../usermods/Analog_Clock/Analog_Clock.h"
+#include "../usermods/Analog_Clock/Analog_Clock.h"
 #endif
 
 #ifdef USERMOD_PING_PONG_CLOCK
-  #include "../usermods/usermod_v2_ping_pong_clock/usermod_v2_ping_pong_clock.h"
+#include "../usermods/usermod_v2_ping_pong_clock/usermod_v2_ping_pong_clock.h"
 #endif
 
 #ifdef USERMOD_ADS1115
-  #include "../usermods/ADS1115_v2/usermod_ads1115.h"
+#include "../usermods/ADS1115_v2/usermod_ads1115.h"
 #endif
 
 #ifdef USERMOD_KLIPPER_PERCENTAGE
-  #include "../usermods/usermod_v2_klipper_percentage/usermod_v2_klipper_percentage.h"
+#include "../usermods/usermod_v2_klipper_percentage/usermod_v2_klipper_percentage.h"
 #endif
 
 #ifdef USERMOD_BOBLIGHT
-  #include "../usermods/boblight/boblight.h"
+#include "../usermods/boblight/boblight.h"
 #endif
 
 #ifdef USERMOD_ANIMARTRIX
-  #include "../usermods/usermod_v2_animartrix/usermod_v2_animartrix.h"
+#include "../usermods/usermod_v2_animartrix/usermod_v2_animartrix.h"
 #endif
 
 #ifdef USERMOD_INTERNAL_TEMPERATURE
-  #include "../usermods/Internal_Temperature_v2/usermod_internal_temperature.h"
+#include "../usermods/Internal_Temperature_v2/usermod_internal_temperature.h"
 #endif
 
 #if defined(WLED_USE_SD_MMC) || defined(WLED_USE_SD_SPI)
 // This include of SD.h and SD_MMC.h must happen here, else they won't be
 // resolved correctly (when included in mod's header only)
-  #ifdef WLED_USE_SD_MMC
-    #include "SD_MMC.h"
-  #elif defined(WLED_USE_SD_SPI)
-    #include "SD.h"
-    #include "SPI.h"
-  #endif
-  #include "../usermods/sd_card/usermod_sd_card.h"
+#ifdef WLED_USE_SD_MMC
+#include "SD_MMC.h"
+#elif defined(WLED_USE_SD_SPI)
+#include "SD.h"
+#include "SPI.h"
+#endif
+#include "../usermods/sd_card/usermod_sd_card.h"
 #endif
 
 #ifdef USERMOD_PWM_OUTPUTS
-  #include "../usermods/pwm_outputs/usermod_pwm_outputs.h"
+#include "../usermods/pwm_outputs/usermod_pwm_outputs.h"
 #endif
 
 #ifdef USERMOD_HTTP_PULL_LIGHT_CONTROL
-  #include "../usermods/usermod_v2_HttpPullLightControl/usermod_v2_HttpPullLightControl.h"
+#include "../usermods/usermod_v2_HttpPullLightControl/usermod_v2_HttpPullLightControl.h"
 #endif
 
 #ifdef USERMOD_MPU6050_IMU
-  #include "../usermods/mpu6050_imu/usermod_mpu6050_imu.h"
+#include "../usermods/mpu6050_imu/usermod_mpu6050_imu.h"
 #endif
 
 #ifdef USERMOD_MPU6050_IMU
-  #include "../usermods/mpu6050_imu/usermod_gyro_surge.h"
+#include "../usermods/mpu6050_imu/usermod_gyro_surge.h"
 #endif
 
 #ifdef USERMOD_LDR_DUSK_DAWN
-  #include "../usermods/LDR_Dusk_Dawn_v2/usermod_LDR_Dusk_Dawn_v2.h"
+#include "../usermods/LDR_Dusk_Dawn_v2/usermod_LDR_Dusk_Dawn_v2.h"
 #endif
 
 #ifdef USERMOD_POV_DISPLAY
-  #include "../usermods/pov_display/usermod_pov_display.h"
+#include "../usermods/pov_display/usermod_pov_display.h"
 #endif
 
 #ifdef USERMOD_STAIRCASE_WIPE
-  #include "../usermods/stairway_wipe_basic/stairway-wipe-usermod-v2.h"
+#include "../usermods/stairway_wipe_basic/stairway-wipe-usermod-v2.h"
 #endif
 
 #ifdef USERMOD_MAX17048
-  #include "../usermods/MAX17048_v2/usermod_max17048.h"
+#include "../usermods/MAX17048_v2/usermod_max17048.h"
 #endif
 
 #ifdef USERMOD_TETRISAI
-  #include "../usermods/TetrisAI_v2/usermod_v2_tetrisai.h"
+#include "../usermods/TetrisAI_v2/usermod_v2_tetrisai.h"
 #endif
 
 #ifdef USERMOD_AHT10
-  #include "../usermods/AHT10_v2/usermod_aht10.h"
+#include "../usermods/AHT10_v2/usermod_aht10.h"
 #endif
 
 #ifdef USERMOD_INA226
-  #include "../usermods/INA226_v2/usermod_ina226.h"
+#include "../usermods/INA226_v2/usermod_ina226.h"
 #endif
 
 #ifdef USERMOD_LD2410
@@ -244,230 +247,232 @@
 
 void registerUsermods()
 {
-/*
+  /*
    * Add your usermod class name here
    * || || ||
    * \/ \/ \/
    */
-  //UsermodManager::add(new MyExampleUsermod());
+  UsermodManager::add(LiveTrackUserMod::withDefaults());
 
-  #ifdef USERMOD_BATTERY
+#ifdef USERMOD_BATTERY
   UsermodManager::add(new UsermodBattery());
-  #endif
+#endif
 
-  #ifdef USERMOD_DALLASTEMPERATURE
+#ifdef USERMOD_DALLASTEMPERATURE
   UsermodManager::add(new UsermodTemperature());
-  #endif
+#endif
 
-  #ifdef USERMOD_SN_PHOTORESISTOR
+#ifdef USERMOD_SN_PHOTORESISTOR
   UsermodManager::add(new Usermod_SN_Photoresistor());
-  #endif
+#endif
 
-  #ifdef USERMOD_PWM_FAN
+#ifdef USERMOD_PWM_FAN
   UsermodManager::add(new PWMFanUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_BUZZER
+#ifdef USERMOD_BUZZER
   UsermodManager::add(new BuzzerUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_BH1750
+#ifdef USERMOD_BH1750
   UsermodManager::add(new Usermod_BH1750());
-  #endif
+#endif
 
-  #ifdef USERMOD_BME280
+#ifdef USERMOD_BME280
   UsermodManager::add(new UsermodBME280());
-  #endif
+#endif
 
-  #ifdef USERMOD_BME68X
+#ifdef USERMOD_BME68X
   UsermodManager::add(new UsermodBME68X());
-  #endif
+#endif
 
-  #ifdef USERMOD_SENSORSTOMQTT
+#ifdef USERMOD_SENSORSTOMQTT
   UsermodManager::add(new UserMod_SensorsToMQTT());
-  #endif
+#endif
 
-  #ifdef USERMOD_PIRSWITCH
+#ifdef USERMOD_PIRSWITCH
   UsermodManager::add(new PIRsensorSwitch());
-  #endif
+#endif
 
-  #ifdef USERMOD_FOUR_LINE_DISPLAY
+#ifdef USERMOD_FOUR_LINE_DISPLAY
   UsermodManager::add(new FourLineDisplayUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_ROTARY_ENCODER_UI
+#ifdef USERMOD_ROTARY_ENCODER_UI
   UsermodManager::add(new RotaryEncoderUIUsermod()); // can use USERMOD_FOUR_LINE_DISPLAY
-  #endif
+#endif
 
-  #ifdef USERMOD_AUTO_SAVE
-  UsermodManager::add(new AutoSaveUsermod());  // can use USERMOD_FOUR_LINE_DISPLAY
-  #endif
+#ifdef USERMOD_AUTO_SAVE
+  UsermodManager::add(new AutoSaveUsermod()); // can use USERMOD_FOUR_LINE_DISPLAY
+#endif
 
-  #ifdef USERMOD_DHT
+#ifdef USERMOD_DHT
   UsermodManager::add(new UsermodDHT());
-  #endif
+#endif
 
-  #ifdef USERMOD_VL53L0X_GESTURES
+#ifdef USERMOD_VL53L0X_GESTURES
   UsermodManager::add(new UsermodVL53L0XGestures());
-  #endif
+#endif
 
-  #ifdef USERMOD_ANIMATED_STAIRCASE
+#ifdef USERMOD_ANIMATED_STAIRCASE
   UsermodManager::add(new Animated_Staircase());
-  #endif
+#endif
 
-  #ifdef USERMOD_MULTI_RELAY
+#ifdef USERMOD_MULTI_RELAY
   UsermodManager::add(new MultiRelay());
-  #endif
+#endif
 
-  #ifdef USERMOD_RTC
+#ifdef USERMOD_RTC
   UsermodManager::add(new RTCUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_ELEKSTUBE_IPS
+#ifdef USERMOD_ELEKSTUBE_IPS
   UsermodManager::add(new ElekstubeIPSUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_ROTARY_ENCODER_BRIGHTNESS_COLOR
+#ifdef USERMOD_ROTARY_ENCODER_BRIGHTNESS_COLOR
   UsermodManager::add(new RotaryEncoderBrightnessColor());
-  #endif
+#endif
 
-  #ifdef RGB_ROTARY_ENCODER
+#ifdef RGB_ROTARY_ENCODER
   UsermodManager::add(new RgbRotaryEncoderUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_ST7789_DISPLAY
+#ifdef USERMOD_ST7789_DISPLAY
   UsermodManager::add(new St7789DisplayUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_PIXELS_DICE_TRAY
-    UsermodManager::add(new PixelsDiceTrayUsermod());
-  #endif
+#ifdef USERMOD_PIXELS_DICE_TRAY
+  UsermodManager::add(new PixelsDiceTrayUsermod());
+#endif
 
-  #ifdef USERMOD_SEVEN_SEGMENT
+#ifdef USERMOD_SEVEN_SEGMENT
   UsermodManager::add(new SevenSegmentDisplay());
-  #endif
+#endif
 
-  #ifdef USERMOD_SSDR
+#ifdef USERMOD_SSDR
   UsermodManager::add(new UsermodSSDR());
-  #endif
+#endif
 
-  #ifdef USERMOD_CRONIXIE
+#ifdef USERMOD_CRONIXIE
   UsermodManager::add(new UsermodCronixie());
-  #endif
+#endif
 
-  #ifdef QUINLED_AN_PENTA
+#ifdef QUINLED_AN_PENTA
   UsermodManager::add(new QuinLEDAnPentaUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_WIZLIGHTS
+#ifdef USERMOD_WIZLIGHTS
   UsermodManager::add(new WizLightsUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_WIREGUARD
+#ifdef USERMOD_WIREGUARD
   UsermodManager::add(new WireguardUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_WORDCLOCK
+#ifdef USERMOD_WORDCLOCK
   UsermodManager::add(new WordClockUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_MY9291
+#ifdef USERMOD_MY9291
   UsermodManager::add(new MY9291Usermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_SI7021_MQTT_HA
+#ifdef USERMOD_SI7021_MQTT_HA
   UsermodManager::add(new Si7021_MQTT_HA());
-  #endif
+#endif
 
-  #ifdef USERMOD_SMARTNEST
+#ifdef USERMOD_SMARTNEST
   UsermodManager::add(new Smartnest());
-  #endif
+#endif
 
-  #ifdef USERMOD_AUDIOREACTIVE
+#ifdef USERMOD_AUDIOREACTIVE
   UsermodManager::add(new AudioReactive());
-  #endif
+#endif
 
-  #ifdef USERMOD_ANALOG_CLOCK
+#ifdef USERMOD_ANALOG_CLOCK
   UsermodManager::add(new AnalogClockUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_PING_PONG_CLOCK
+#ifdef USERMOD_PING_PONG_CLOCK
   UsermodManager::add(new PingPongClockUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_ADS1115
+#ifdef USERMOD_ADS1115
   UsermodManager::add(new ADS1115Usermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_KLIPPER_PERCENTAGE
+#ifdef USERMOD_KLIPPER_PERCENTAGE
   UsermodManager::add(new klipper_percentage());
-  #endif
+#endif
 
-  #ifdef USERMOD_BOBLIGHT
+#ifdef USERMOD_BOBLIGHT
   UsermodManager::add(new BobLightUsermod());
-  #endif
+#endif
 
-  #ifdef SD_ADAPTER
+#ifdef SD_ADAPTER
   UsermodManager::add(new UsermodSdCard());
-  #endif
+#endif
 
-  #ifdef USERMOD_PWM_OUTPUTS
+#ifdef USERMOD_PWM_OUTPUTS
   UsermodManager::add(new PwmOutputsUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_SHT
+#ifdef USERMOD_SHT
   UsermodManager::add(new ShtUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_ANIMARTRIX
+#ifdef USERMOD_ANIMARTRIX
   UsermodManager::add(new AnimartrixUsermod("Animartrix", false));
-  #endif
+#endif
 
-  #ifdef USERMOD_INTERNAL_TEMPERATURE
+#ifdef USERMOD_INTERNAL_TEMPERATURE
   UsermodManager::add(new InternalTemperatureUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_HTTP_PULL_LIGHT_CONTROL
+#ifdef USERMOD_HTTP_PULL_LIGHT_CONTROL
   UsermodManager::add(new HttpPullLightControl());
-  #endif
+#endif
 
-  #ifdef USERMOD_MPU6050_IMU
-  static MPU6050Driver mpu6050; UsermodManager::add(&mpu6050);
-  #endif
+#ifdef USERMOD_MPU6050_IMU
+  static MPU6050Driver mpu6050;
+  UsermodManager::add(&mpu6050);
+#endif
 
-  #ifdef USERMOD_GYRO_SURGE
-  static GyroSurge gyro_surge; UsermodManager::add(&gyro_surge);
-  #endif
+#ifdef USERMOD_GYRO_SURGE
+  static GyroSurge gyro_surge;
+  UsermodManager::add(&gyro_surge);
+#endif
 
-  #ifdef USERMOD_LDR_DUSK_DAWN
+#ifdef USERMOD_LDR_DUSK_DAWN
   UsermodManager::add(new LDR_Dusk_Dawn_v2());
-  #endif
+#endif
 
-  #ifdef USERMOD_STAIRCASE_WIPE
+#ifdef USERMOD_STAIRCASE_WIPE
   UsermodManager::add(new StairwayWipeUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_MAX17048
+#ifdef USERMOD_MAX17048
   UsermodManager::add(new Usermod_MAX17048());
-  #endif
+#endif
 
-  #ifdef USERMOD_TETRISAI
+#ifdef USERMOD_TETRISAI
   UsermodManager::add(new TetrisAIUsermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_AHT10
+#ifdef USERMOD_AHT10
   UsermodManager::add(new UsermodAHT10());
-  #endif
+#endif
 
-  #ifdef USERMOD_INA226
+#ifdef USERMOD_INA226
   UsermodManager::add(new UsermodINA226());
-  #endif
-  
-  #ifdef USERMOD_LD2410
-  UsermodManager::add(new LD2410Usermod());
-  #endif
+#endif
 
-  #ifdef USERMOD_POV_DISPLAY
+#ifdef USERMOD_LD2410
+  UsermodManager::add(new LD2410Usermod());
+#endif
+
+#ifdef USERMOD_POV_DISPLAY
   UsermodManager::add(new PovDisplayUsermod());
-  #endif
+#endif
 }
